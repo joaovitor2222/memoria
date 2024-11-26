@@ -1,0 +1,87 @@
+@import url("reset.css");
+
+body{
+    background: url("../imagens/dragonball_fundo.png") center no-repeat;
+    background-size: cover;
+}
+
+main{
+    height: 100vh;
+    width: 100%;
+
+    display: grid;
+    place-items: center;
+}
+
+header{
+    background-color: white;
+    width: calc(100% - 10%);
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 3px 3px #000000, 6px 6px rgba(0, 68, 255, 0.8);
+}
+
+.grid{
+    max-width: 700px;
+
+    grid-template-columns: repeat(7, 1fr);
+    display: grid;
+    gap: .5rem;
+}
+
+.card{
+    aspect-ratio: 3/4;
+    width: 7rem;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 500ms ease;
+}
+
+/* .card:active{
+    transform: rotateY(180deg);
+} */
+
+.face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-shadow: 4px 4px 8px rgba(0, 255, 255, 0.548);
+    background-size: cover !important;
+}
+
+.front{
+     /* background: url("../imagens/bills.png") center;  */
+     transform: rotateY(180deg); 
+}
+
+.back{
+    background: url("../imagens/dragonball.jpeg") center;
+    backface-visibility: hidden;
+}
+
+/* classes add com java script */
+.reveal-card{
+    transform: rotateY(180deg);
+}
+
+.disabled-card {
+    filter: saturate(0);
+    opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+    .grid{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .card{
+        aspect-ratio: 3/5;
+        width: 4rem;
+    }
+}
